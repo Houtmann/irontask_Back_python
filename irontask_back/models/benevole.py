@@ -1,6 +1,7 @@
 from django.db import models
 
 class Benevole(models.Model):
+
     SEXE = (
         ('H', 'Homme'),
         ('F', 'Femme'),
@@ -14,7 +15,7 @@ class Benevole(models.Model):
 
     dateNaissance = models.DateField
 
-    sexe = models.CharField(max_length=1 , choices=SEXE)
+    sexe = models.CharField(max_length=1, choices=SEXE)
 
     adresse = models.CharField(max_length=50)
 
