@@ -1,14 +1,20 @@
 from django.db import models
 from ..models import triathlon
+from ..models import benevole
 
 class Tache(models.Model):
-    
+
     triathlon = models.ForeignKey(triathlon)
     typeTache = models.ForeignKey(typeTache)
 
-   PRIMARY KEY(Id_Triathlon, Id_TypeTache),
-   DateFin DATE,
-   Durée SMALLINT,
-   NbJoursRappel SMALLINT,
-   TacheValidée LOGICAL,
-   ID_Bénévole INT REFERENCES Benevole(ID_Bénévole) NOT NULL
+ 
+
+    dateFin = models.DateField
+
+    duree = models.TimeField
+    nbJoursRappel = models.IntegerField
+    tacheValider = models.BooleanField
+    benevole = models.ForeignKey(benevole)
+
+    class Meta:
+         unique_together = (('triathlon', 'typeTache'),)
