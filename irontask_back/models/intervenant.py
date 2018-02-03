@@ -5,8 +5,6 @@ class Intervenant(models.Model):
 
     raisonSocial = models.CharField(max_length=50)
 
-
-
     type = models.ForeignKey()
 
     adresse = models.CharField(max_length=50)
