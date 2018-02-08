@@ -34,4 +34,32 @@ class Benevole(models.Model):
     email = models.EmailField
 
 
+class TypeTriathlon(models.Model):
+    id = models.AutoField(primary_key=True)
 
+    libelle = models.CharField(max_length=50, null=False, blank=False)
+
+    distanceNatation = models.IntegerField(max_length=2, null=False, blank=False)
+
+    distanceCyclisme = models.IntegerField(max_length=4, null=False, blank=False)
+
+    distanceCoursePied = models.IntegerField(max_length=4, null=False, blank=False)
+    def __str__(self):
+        return self.libelle
+
+class Triathlon(models.Model):
+    id = models.AutoField(primary_key=True)
+
+    date = models.DateField(null=False, blank=False)
+
+    heureDepart = models.TimeField(null=False, blank=False)
+
+    codePostal = models.CharField(max_length=5, null=False, blank=False)
+
+    adresse = models.CharField(max_length=50, null=False, blank=False)
+
+    ville = models.CharField(max_length=50, null=False, blank=False)
+    typeTriathlon = models.ForeignKey(TypeTriathlon, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Triathlon du "+ str(self.date) + ' a ' +self.ville
