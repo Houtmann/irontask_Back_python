@@ -1,4 +1,4 @@
-from django.db import models
+'''from django.db import models
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
@@ -187,4 +187,4 @@ class Affecter(models.Model):
     class Meta:
         managed = False
         db_table = 'affecter'
-        unique_together = (('benevole_id_bénévole', 'tache_id_triathlon', 'tache_id_tachemodèle'),)
+        unique_together = (('benevole_id_bénévole', 'tache_id_triathlon', 'tache_id_tachemodèle'),)'''
