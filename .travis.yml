@@ -15,7 +15,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - manage.py test
 
 env:
   - DJANGO_VERSION=1.11
