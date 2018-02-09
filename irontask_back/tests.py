@@ -122,8 +122,6 @@ class Intervenant(models.Model):
 
     raisonSocial = models.CharField(max_length=50)
 
-
-
     adresse = models.CharField(max_length=50)
 
     codePostal = models.CharField(max_length=5)

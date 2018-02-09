@@ -2,9 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+#class UserProfile(models.Model):
+ #   user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Benevole(models.Model):
     SEXE = (
@@ -68,4 +67,19 @@ class Triathlon(models.Model):
     def __str__(self):
         return "Triathlon du "+ str(self.date) + ' a ' +self.ville
 
+
+class Tache(models.Model):
+
+    titre = models.CharField(max_length=50)
+    triathlon = models.ForeignKey(Triathlon, on_delete=models.CASCADE)
+    creer_par = models.ForeignKey(User, on_delete=models.CASCADE)
+    dateFin = models.DateField(null=False, blank=False)
+
+    duree = models.TimeField(null=False, blank=False)
+    nbJoursRappel = models.IntegerField(null=False, blank=False)
+    tacheValider = models.BooleanField(null=False, blank=False)
+    benevole = models.ForeignKey(Benevole, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.titre + ' ' + self.creer_par.get_email_field_name()
 

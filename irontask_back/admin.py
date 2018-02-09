@@ -12,3 +12,7 @@ admin.site.register(Triathlon, TriathlonAdmin)
 class TypeTriathlonAdmin(admin.ModelAdmin):
     pass
 admin.site.register(TypeTriathlon, TypeTriathlonAdmin)
+
+class TacheAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Tache, TacheAdmin)

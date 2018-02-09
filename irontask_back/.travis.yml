@@ -17,6 +17,6 @@ install:
 script:
   - pytest # or py.test for Python versions 3.5 and below
 
-  env:
+env:
   - DJANGO_VERSION=1.11
   - DJANGO_VERSION=2.0.2
