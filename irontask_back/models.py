@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -33,6 +34,9 @@ class Benevole(models.Model):
 
     email = models.EmailField
 
+    def __str__(self):
+        return self.nom + ' ' + self.prenom
+
 
 class TypeTriathlon(models.Model):
     id = models.AutoField(primary_key=True)
@@ -63,3 +67,5 @@ class Triathlon(models.Model):
 
     def __str__(self):
         return "Triathlon du "+ str(self.date) + ' a ' +self.ville
+
+
