@@ -3,7 +3,7 @@ from ..models import Benevole
 from django.test import Client
 
 
-class TestBenevoleCase(TestCase):
+class test_BenevoleCase(TestCase):
     c = Client()
 
     def setUp(self):
@@ -13,7 +13,7 @@ class TestBenevoleCase(TestCase):
         self.b = Benevole.objects.get(nom='HOUTMANN')
 
 
-    def testAttribut(self):
+    def test_Attribut(self):
 
 
 
@@ -26,13 +26,13 @@ class TestBenevoleCase(TestCase):
         self.assertEqual(self.b.telephonePortable, '0601403635')
 
 
-    def testGetStr(self):
+    def test_GetStr(self):
         print('couou')
         b = Benevole.objects.get(nom='HOUTMANN')
         self.assertEqual(b.__str__(), 'HOUTMANN hadrien')
 
 
-    def testApiReponse(self):
+    def test_ApiReponse(self):
 
         r = self.c.get('/benevole/')
         self.assertEqual(r.status_code, 200)
