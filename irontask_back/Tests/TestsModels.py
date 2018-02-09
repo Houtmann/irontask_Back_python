@@ -27,6 +27,7 @@ class TestBenevoleCase(TestCase):
 
 
     def testGetStr(self):
+        print('couou')
         b = Benevole.objects.get(nom='HOUTMANN')
         self.assertEqual(b.__str__(), 'HOUTMANN hadrien')
 
