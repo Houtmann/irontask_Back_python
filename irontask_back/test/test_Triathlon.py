@@ -17,6 +17,13 @@ class test_TriathlonCase(TestCase):
 
 
     def test__str__(self):
-        t = Triathlon.objects.all()
-        print(t.__str__())
+        t = Triathlon.objects.get(pk=1)
+        self.assertEqual(t.__str__(), "Triathlon du 2018-06-18 à Toulouse")
 
+
+    def test_formatVille(self):
+            v = 'toulouse'
+            self.assertEqual(Triathlon.formatVille(v), 'Toulouse')
+
+    def test_save(self):
+            self.fail()
