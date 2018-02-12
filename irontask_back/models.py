@@ -2,8 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
 
-#class UserProfile(models.Model):
- #   user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+# class UserProfile(models.Model):
+#   user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Benevole(models.Model):
     SEXE = (
@@ -47,8 +48,10 @@ class TypeTriathlon(models.Model):
     distanceCyclisme = models.IntegerField(max_length=4, null=False, blank=False)
 
     distanceCoursePied = models.IntegerField(max_length=4, null=False, blank=False)
+
     def __str__(self):
         return self.libelle
+
 
 class Triathlon(models.Model):
     id = models.AutoField(primary_key=True)
@@ -65,20 +68,18 @@ class Triathlon(models.Model):
     typeTriathlon = models.ForeignKey(TypeTriathlon, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Triathlon du "+ str(self.date) + ' à ' +self.ville
+        return "Triathlon du " + str(self.date) + ' à ' + self.ville
 
-    def formatVille(self, v: str) -> str:
-
+    @staticmethod
+    def formatVille(v: str) -> str:
         return v.capitalize()
-    
+
     def save(self, *args, **kwargs):
         self.ville = self.formatVille(self.ville)
         super(Triathlon, self).save(*args, **kwargs)
 
 
-
 class Tache(models.Model):
-
     titre = models.CharField(max_length=50)
     triathlon = models.ForeignKey(Triathlon, on_delete=models.CASCADE)
     creer_par = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -91,4 +92,3 @@ class Tache(models.Model):
 
     def __str__(self):
         return self.titre + ' ' + self.creer_par.get_email_field_name()
-
