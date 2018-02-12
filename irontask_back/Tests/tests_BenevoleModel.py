@@ -23,7 +23,7 @@ class test_BenevoleCase(TestCase):
         self.assertEqual(self.b.telephonePortable, '0601403635')
 
 
-    def test_GetStr(self):
+    def __str__(self):
         b = Benevole.objects.get(nom='HOUTMANN')
         self.assertEqual(b.__str__(), 'HOUTMANN hadrien')
 
