@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ...models import Benevole
+from irontask_back.models import Benevole
 from django.test import Client
 
 
