@@ -15,12 +15,12 @@ class test_BenevoleCase(TestCase):
 
 
     def test__str__(self):
-        print("test 3")
+
         b = Benevole.objects.get(nom='HOUTMANN')
         self.assertEqual(b.__str__(), 'HOUTMANN hadrien')
 
     def test_Attribut(self):
-        print("test 4")
+
         self.assertEqual(self.b.nom, 'HOUTMANN')
         self.assertEqual(self.b.adresse, 'coucou')
         self.assertEqual(self.b.prenom, 'hadrien')

@@ -65,7 +65,16 @@ class Triathlon(models.Model):
     typeTriathlon = models.ForeignKey(TypeTriathlon, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Triathlon du "+ str(self.date) + ' a ' +self.ville
+        return "Triathlon du "+ str(self.date) + ' à ' +self.ville
+
+    def formatVille(self, v: str) -> str:
+
+        return v.capitalize()
+    
+    def save(self, *args, **kwargs):
+        self.ville = self.formatVille(self.ville)
+        super(Triathlon, self).save(*args, **kwargs)
+
 
 
 class Tache(models.Model):

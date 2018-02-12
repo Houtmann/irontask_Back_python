@@ -15,12 +15,12 @@ class test_BenevoleAPICase(TestCase):
 
 
     def test_GetBenevoleIdReponse(self):
-        print("test 5")
+
         r = self.c.get('/benevole/1/')
         self.assertEqual(r.status_code, 200)
 
     def test_GetBenevoleIdJSONReposne(self):
-        print("test 6")
+
         r = self.c.get('/benevole/1/')
         self.assertEqual(r.content,
                          b'{"id":1,"nom":"HOUTMANN","prenom":"hadrien",'
@@ -29,12 +29,12 @@ class test_BenevoleAPICase(TestCase):
                          b'"telephonePortable":"0601403635"}')
 
     def test_ApiReponse(self):
-        print("test 8")
+
         r = self.c.get('/benevole/')
         self.assertEqual(r.status_code, 200)
 
     def testApiJSONReponse(self):
-        print("test 9")
+        
         r = self.c.get('/benevole/')
         self.assertEqual(r.content,
                          b'[{"id":1,"nom":"HOUTMANN","prenom":"hadrien",'
