@@ -14,9 +14,6 @@ class test_BenevoleCase(TestCase):
 
 
     def test_Attribut(self):
-
-
-
         self.assertEqual(self.b.nom, 'HOUTMANN')
         self.assertEqual(self.b.adresse, 'coucou')
         self.assertEqual(self.b.prenom, 'hadrien')
@@ -27,10 +24,22 @@ class test_BenevoleCase(TestCase):
 
 
     def test_GetStr(self):
-        print('couou')
         b = Benevole.objects.get(nom='HOUTMANN')
         self.assertEqual(b.__str__(), 'HOUTMANN hadrien')
 
+
+    def test_GetBenevoleIdReponse(self):
+        r = self.c.get('/benevole/1/')
+        self.assertEqual(r.status_code, 200)
+
+    def test_GetBenevoleIdJSONReposne(self):
+        r = self.c.get('/benevole/1/')
+        print(r.content)
+        self.assertEqual(r.content,
+                         b'{"id":1,"nom":"HOUTMANN","prenom":"hadrien",'
+                         b'"sexe":"F","adresse":"coucou","codePostal":"88200",'
+                         b'"ville":"remiremont","telephoneFixe":"0601403635",'
+                         b'"telephonePortable":"0601403635"}')
 
     def test_ApiReponse(self):
 
@@ -44,6 +53,10 @@ class test_BenevoleCase(TestCase):
                          b'"sexe":"F","adresse":"coucou","codePostal":"88200",'
                          b'"ville":"remiremont","telephoneFixe":"0601403635",'
                          b'"telephonePortable":"0601403635"}]')
+
+
+
+
 
 
 
