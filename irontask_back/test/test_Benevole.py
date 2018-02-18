@@ -10,7 +10,7 @@ class test_BenevoleCase(TestCase):
 
         Benevole.objects.create(nom='HOUTMANN', prenom='hadrien', sexe='F'
                                 , adresse="coucou", codePostal='88200', ville='remiremont',
-                                telephoneFixe='0601403635', telephonePortable='0601403635')
+                                telephoneFixe='0601403838', telephonePortable='0601403838')
         self.b = Benevole.objects.get(nom='HOUTMANN')
 
 
@@ -26,5 +26,5 @@ class test_BenevoleCase(TestCase):
         self.assertEqual(self.b.prenom, 'hadrien')
         self.assertEqual(self.b.codePostal, '88200')
         self.assertEqual(self.b.ville, 'remiremont')
-        self.assertEqual(self.b.telephoneFixe, '0601403635')
-        self.assertEqual(self.b.telephonePortable, '0601403635')
+        self.assertEqual(self.b.telephoneFixe, '0601403838')
+        self.assertEqual(self.b.telephonePortable, '0601403838')

@@ -9,7 +9,7 @@ class test_BenevoleAPICase(TestCase):
     def setUp(self):
         Benevole.objects.create(nom='HOUTMANN', prenom='hadrien', sexe='F'
                                 , adresse="coucou", codePostal='88200', ville='remiremont',
-                                telephoneFixe='0601403635', telephonePortable='0601403635')
+                                telephoneFixe='0601403635', telephonePortable='0601403838')
         self.b = Benevole.objects.get(nom='HOUTMANN')
 
 
@@ -25,8 +25,8 @@ class test_BenevoleAPICase(TestCase):
         self.assertEqual(r.content,
                          b'{"id":1,"nom":"HOUTMANN","prenom":"hadrien",'
                          b'"sexe":"F","adresse":"coucou","codePostal":"88200",'
-                         b'"ville":"remiremont","telephoneFixe":"0601403635",'
-                         b'"telephonePortable":"0601403635"}')
+                         b'"ville":"remiremont","telephoneFixe":"0601403838",'
+                         b'"telephonePortable":"0601403838"}')
 
     def test_ApiReponse(self):
 
@@ -39,5 +39,5 @@ class test_BenevoleAPICase(TestCase):
         self.assertEqual(r.content,
                          b'[{"id":1,"nom":"HOUTMANN","prenom":"hadrien",'
                          b'"sexe":"F","adresse":"coucou","codePostal":"88200",'
-                         b'"ville":"remiremont","telephoneFixe":"0601403635",'
-                         b'"telephonePortable":"0601403635"}]')
+                         b'"ville":"remiremont","telephoneFixe":"0601403838",'
+                         b'"telephonePortable":"0601403838"}]')
